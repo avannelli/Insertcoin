@@ -1,0 +1,11 @@
+import { useState, type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { sound } from '../utils/sound';
+import { formatScore } from '../utils/scores';
+export function PixelButton({ children, className = '', ...props }: ButtonHTMLAttributes<HTMLButtonElement>) { return <button className={`pixel-button ${className}`} onMouseEnter={() => sound.play('hover')} {...props}>{children}</button>; }
+export function SoundToggle() { const [muted, setMuted] = useState(sound.muted); return <button className="sound-toggle" aria-label={muted ? 'Turn sound on' : 'Mute sound'} aria-pressed={!muted} onClick={() => { sound.setMuted(!muted); setMuted(!muted); sound.play('select'); }}><span aria-hidden="true">{muted ? '▥' : '▥'}</span> SOUND {muted ? 'OFF' : 'ON'}</button>; }
+export function ScoreDisplay({ score, label = 'HI' }: { score: number; label?: string }) { return <span className="score-display">{label} <strong>{formatScore(score)}</strong></span>; }
+export function Header({ children }: { children?: ReactNode }) { return <header className="readout"><span><i className="status-dot"/> PLAYER 01</span>{children ?? <span>ALL PLAY. NO PAY.</span>}<SoundToggle /></header>; }
+export function ArcadeFrame({ children, title = false }: { children: ReactNode; title?: boolean }) { return <div className={`arcade-frame ${title ? 'title-frame' : ''}`}>{children}</div>; }
+export function ScreenTransition({ children }: { children: ReactNode }) { return <div className="screen-transition">{children}</div>; }
+export function PixelMark({ small = false }: { small?: boolean }) { return <svg className={`pixel-mark ${small ? 'small' : ''}`} viewBox="0 0 100 100" aria-hidden="true"><path fill="var(--cyan)" d="M38 6h30v9h14v14h9v42h-9v14H68v9H38v-9H24V71h-9V29h9V15h14z"/><path fill="var(--magenta)" d="M30 6h30v9h14v14h9v42h-9v14H60v9H30v-9H16V71H7V29h9V15h14z"/><path fill="var(--surface)" d="M32 19h26v8h12v46H58v8H32v-8H20V27h12z"/><path fill="var(--magenta)" d="M35 25h20v8h9v34h-9v8H35v-8h-9V33h9z"/><path fill="var(--cyan)" d="M40 34h12v32H40z"/></svg>; }
+export function Footer() { return <footer className="readout footer"><span>© INSERTCOIN <span className="muted">/</span> EST. 2026</span><span>BUILT FOR ONE MORE GO <b>↗</b></span></footer>; }

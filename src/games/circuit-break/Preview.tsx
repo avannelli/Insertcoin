@@ -1,0 +1,1 @@
+export default function CircuitBreakPreview() { return <><div className="art-top">CIRCUIT_01 <span>● ● ●</span></div><div className="art-bricks">{Array.from({length: 28}, (_, i) => <i key={i}/>)}</div><div className="art-ball"/><div className="art-paddle"/><span className="art-caption">BREAK. BOUNCE. REPEAT.</span></>; }

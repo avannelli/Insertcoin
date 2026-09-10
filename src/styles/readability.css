@@ -1,0 +1,52 @@
+/* Shared text scale: keep supporting copy readable at every viewport size. */
+.readout, .sound-toggle { font-size: 12px; }
+.footer { font-size: 11px; }
+.eyebrow, .title-content > .eyebrow, .section-heading .eyebrow { font-size: 12px; }
+.personal-arcade { font-size: clamp(14px, 1.6vw, 20px); }
+.start-block p, .ready, .section-meta { font-size: 11px; }
+.title-bottom p, .selection-note { font-size: 13px; }
+.game-details .eyebrow { font-size: 11px; flex-wrap: wrap; }
+.subtitle, .control-copy, .back-button { font-size: 12px; }
+.description { font-size: 14px; }
+.pixel-button { font-size: 13px; }
+.start-button { font-size: 20px; }
+.score-display { font-size: 12px; }
+.game-details h2, .game-page-heading h1 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(26px, 3vw, 36px);
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+.pixel-mark { display: block; }
+.instructions-card {
+  margin-top: 24px;
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cyan);
+  background: #1d1630;
+}
+.instructions-card h2 { margin: 0 0 18px; color: var(--cyan); font-size: 16px; letter-spacing: 1.5px; }
+.instructions-card h3 { margin: 0 0 8px; color: var(--yellow); font-size: 12px; letter-spacing: 1px; }
+.instruction-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.instructions-card p { margin: 0; font-size: 15px; line-height: 1.8; color: var(--text); }
+.game-overlay .eyebrow { font-size: 12px; }
+.game-overlay > p:not(.eyebrow) { font-size: 13px; }
+@media (max-width: 600px) {
+  .readout, .sound-toggle, .footer { font-size: 10px; }
+  .title-content > .eyebrow { max-width: 210px; font-size: 11px; }
+  .title-lockup > .pixel-mark { top: -75px; }
+  .ready, .section-meta { font-size: 10px; }
+  .title-bottom { flex-wrap: wrap; }
+  .game-details { padding: 20px; }
+  .game-details h2, .game-page-heading h1 { font-size: clamp(24px, 6.7vw, 32px); }
+  .game-toolbar button { font-size: 10px; padding: 11px 8px; }
+  .score-display { font-size: 10px; }
+  .instructions-card { padding: 20px; }
+  .instruction-columns { grid-template-columns: 1fr; gap: 20px; }
+  .instructions-card p { font-size: 14px; }
+  .game-overlay { padding: 12px; }
+  .game-overlay .eyebrow { font-size: 10px; }
+  .game-overlay > p:not(.eyebrow) { font-size: 11px; margin-bottom: 12px; }
+  .game-overlay .primary, .overlay-actions .pixel-button { font-size: 10px; }
+}

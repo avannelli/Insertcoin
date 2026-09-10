@@ -1,0 +1,18 @@
+.portrait-game .canvas-wrap { width: min(100%, 420px); margin-inline: auto; }
+.portrait-game .phaser-host { user-select: none; -webkit-user-select: none; }
+.portrait-game .game-overlay h2 { font-size: clamp(24px, 4vw, 36px); }
+.portrait-game .game-overlay > p { max-width: 280px; }
+.match-score { display: flex; justify-content: center; align-items: center; gap: 24px; width: 100%; font-size: 14px; letter-spacing: 1px; }
+.match-score > span:first-child { color: var(--cyan); }
+.match-score > span:last-child { color: var(--magenta); }
+.match-score b { font-size: 24px; color: var(--text); margin: 0 8px; }
+.match-stats { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 11px; line-height: 1.7; color: var(--muted); }
+.match-stats b { color: var(--cyan); }
+.game-notice { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.game-notice span { padding: 16px 24px; background: #171127e8; border: 1px solid var(--cyan); color: var(--yellow); font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+.portrait-game:fullscreen .canvas-wrap { width: min(100vw, calc((100dvh - 145px) * 2 / 3)); }
+@media(max-width:600px) {
+  .match-score { font-size: 12px; gap: 10px; }
+  .match-score b { font-size: 22px; margin: 0 4px; }
+  .game-notice span { font-size: 20px; }
+}
