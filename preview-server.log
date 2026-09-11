@@ -1,0 +1,102 @@
+
+  VITE v6.4.3  ready in 1728 ms
+
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: http://192.168.7.227:5174/
+9:32:42 PM [vite] (client) hmr update /src/components/GameShell.tsx
+9:32:42 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+9:32:43 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+9:32:43 PM [vite] (client) hmr update /src/pages/GameView.tsx
+9:32:43 PM [vite] (client) page reload src/main.tsx
+9:34:06 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+9:34:06 PM [vite] (client) hmr update /src/styles/circuit-break.css
+9:35:09 PM [vite] (client) hmr update /src/styles/circuit-break.css
+9:36:24 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+9:40:16 PM [vite] (client) hmr update /src/pages/TitleScreen.tsx
+9:40:16 PM [vite] (client) hmr update /src/styles/global.css
+9:40:38 PM [vite] (client) hmr update /src/pages/TitleScreen.tsx
+9:41:29 PM [vite] (client) hmr update /src/pages/TitleScreen.tsx
+9:41:46 PM [vite] (client) hmr update /src/pages/TitleScreen.tsx
+9:48:28 PM [vite] (client) hmr update /src/components/ArcadeUI.tsx
+9:48:28 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx
+9:48:28 PM [vite] (client) hmr update /src/components/GameCard.tsx
+9:48:28 PM [vite] (client) page reload src/main.tsx
+9:50:20 PM [vite] (client) page reload src/styles/retro-menu.css
+9:50:39 PM [vite] (client) hmr update /src/components/GameCard.tsx
+9:51:08 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx
+10:14:13 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+10:14:13 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+10:14:13 PM [vite] (client) page reload src/main.tsx
+10:14:13 PM [vite] (client) hmr update /src/components/GameShell.tsx
+10:14:13 PM [vite] (client) hmr update /src/pages/GameView.tsx
+10:14:13 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+10:14:13 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+10:33:00 PM [vite] (client) page reload src/main.tsx
+10:33:36 PM [vite] (client) hmr update /src/styles/retro-back-sign.css
+10:35:37 PM [vite] (client) hmr update /src/styles/retro-back-sign.css
+10:39:11 PM [vite] (client) page reload src/main.tsx
+10:39:11 PM [vite] (client) hmr update /src/components/GameShell.tsx
+10:39:58 PM [vite] (client) hmr update /src/styles/play-cabinets.css
+10:48:57 PM [vite] (client) hmr update /src/components/ArcadeUI.tsx
+10:50:05 PM [vite] (client) hmr update /src/pages/TitleScreen.tsx
+10:50:43 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx
+10:50:43 PM [vite] (client) page reload src/main.tsx
+10:51:21 PM [vite] (client) page reload src/styles/title-menu-transition.css
+10:57:17 PM [vite] (client) hmr update /src/styles/title-menu-transition.css
+10:57:32 PM [vite] (client) hmr update /src/styles/title-menu-transition.css
+10:57:40 PM [vite] (client) hmr update /src/styles/title-menu-transition.css
+10:57:49 PM [vite] (client) hmr update /src/pages/TitleScreen.tsx
+10:57:49 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx
+10:59:05 PM [vite] (client) hmr update /src/pages/TitleScreen.tsx
+10:59:49 PM [vite] (client) hmr update /src/styles/title-menu-transition.css
+11:04:21 PM [vite] (client) hmr update /src/styles/retro-menu.css
+11:04:21 PM [vite] (client) hmr update /src/App.tsx
+11:04:21 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx
+11:04:21 PM [vite] (client) hmr update /src/pages/GameView.tsx
+11:11:12 PM [vite] (client) hmr update /src/styles/retro-menu.css
+11:11:37 PM [vite] (client) hmr update /src/styles/retro-menu.css
+11:13:42 PM [vite] (client) hmr update /src/styles/retro-menu.css
+11:14:08 PM [vite] (client) hmr update /src/styles/retro-menu.css
+11:15:54 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+11:16:47 PM [vite] (client) hmr update /src/styles/air-hockey.css
+11:16:47 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+11:17:20 PM [vite] (client) hmr update /src/styles/air-hockey.css
+11:17:30 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+11:17:30 PM [vite] (client) hmr update /src/pages/GameView.tsx
+11:17:30 PM [vite] (client) hmr update /src/components/GameShell.tsx
+11:22:13 PM [vite] (client) hmr update /src/styles/play-cabinets.css
+11:22:13 PM [vite] (client) hmr update /src/styles/circuit-break.css
+11:22:13 PM [vite] (client) hmr update /src/styles/retro-back-sign.css
+11:23:36 PM [vite] (client) hmr update /src/styles/circuit-break.css
+11:23:36 PM [vite] (client) hmr update /src/styles/play-cabinets.css
+11:24:24 PM [vite] (client) hmr update /src/styles/play-cabinets.css
+11:30:00 PM [vite] (client) hmr update /src/pages/GameView.tsx
+11:30:00 PM [vite] (client) hmr update /src/components/GameShell.tsx
+11:30:38 PM [vite] (client) hmr update /src/styles/play-cabinets.css
+11:30:38 PM [vite] (client) hmr update /src/styles/retro-back-sign.css
+11:32:11 PM [vite] (client) hmr update /src/styles/play-cabinets.css
+11:32:11 PM [vite] (client) hmr update /src/components/GameShell.tsx
+11:32:59 PM [vite] (client) hmr update /src/styles/play-cabinets.css
+11:33:43 PM [vite] (client) hmr update /src/styles/play-cabinets.css
+11:34:37 PM [vite] (client) hmr update /src/styles/circuit-break.css
+11:34:37 PM [vite] (client) hmr update /src/styles/play-cabinets.css
+11:35:26 PM [vite] (client) hmr update /src/styles/circuit-break.css
+11:36:22 PM [vite] (client) hmr update /src/styles/circuit-break.css
+11:40:31 PM [vite] (client) hmr update /src/games/circuit-break/Preview.tsx
+11:41:03 PM [vite] (client) hmr update /src/games/silly-fish/Preview.tsx
+11:41:42 PM [vite] (client) hmr update /src/games/air-hockey/Preview.tsx
+11:41:52 PM [vite] (client) hmr update /src/games/air-hockey/Preview.tsx
+11:42:02 PM [vite] (client) hmr update /src/components/GameCard.tsx
+11:42:30 PM [vite] (client) hmr update /src/styles/retro-menu.css
+11:43:41 PM [vite] (client) hmr update /src/styles/retro-menu.css
+11:43:41 PM [vite] (client) hmr update /src/games/air-hockey/Preview.tsx
+11:44:15 PM [vite] (client) hmr update /src/games/air-hockey/Preview.tsx
+11:53:05 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+11:55:01 PM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+12:02:47 AM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+12:12:31 AM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+12:14:47 AM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+12:15:57 AM [vite] (client) hmr update /src/pages/ArcadeScreen.tsx, /src/pages/TitleScreen.tsx
+12:31:31 AM [vite] (client) hmr update /src/styles/retro-menu.css
+12:32:49 AM [vite] (client) hmr update /src/styles/retro-menu.css
+12:33:29 AM [vite] (client) hmr update /src/styles/retro-menu.css

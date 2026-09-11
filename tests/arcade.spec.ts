@@ -8,8 +8,8 @@ test('title entry, game controls, persistence, navigation and mobile layout', as
   await page.waitForTimeout(350);
   await page.screenshot({ path: 'test-results/title-desktop.png', fullPage: true });
   await page.keyboard.press('Enter');
-  await expect(page.getByRole('heading', { name: 'SELECT GAME_' })).toBeVisible();
-  await expect(page.getByRole('article')).toHaveCount(5);
+  await expect(page.getByRole('heading', { name: 'Choose your game' })).toBeVisible();
+  await expect(page.getByRole('article')).toHaveCount(3);
   await page.getByRole('article').filter({ has: page.getByRole('heading', { name: 'CIRCUIT BREAK', exact: true }) }).getByRole('button', { name: 'PLAY GAME' }).click();
   await page.getByRole('button', { name: 'LAUNCH BALL' }).click();
   await expect(page.getByRole('button', { name: 'Ⅱ PAUSE' })).toBeEnabled();

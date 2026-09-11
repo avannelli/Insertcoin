@@ -1,0 +1,84 @@
+9:48:28 PM [vite] Pre-transform error: Failed to resolve import "./styles/retro-menu.css" from "src/main.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx:10:7
+  9  |  import "./styles/responsive.css";
+  10 |  import "./styles/circuit-break.css";
+  11 |  import "./styles/retro-menu.css";
+     |          ^
+  12 |  ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ jsxDEV(React.StrictMode, { children: /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
+  13 |    fileName: "E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx",
+9:48:28 PM [vite] Internal server error: Failed to resolve import "./styles/retro-menu.css" from "src/main.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx:10:7
+  9  |  import "./styles/responsive.css";
+  10 |  import "./styles/circuit-break.css";
+  11 |  import "./styles/retro-menu.css";
+     |          ^
+  12 |  ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ jsxDEV(React.StrictMode, { children: /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
+  13 |    fileName: "E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx",
+      at TransformPluginContext._formatLog (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 10)
+      at async TransformPluginContext.transform (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+9:48:29 PM [vite] Pre-transform error: Failed to resolve import "./styles/retro-menu.css" from "src/main.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx:10:7
+  9  |  import "./styles/responsive.css";
+  10 |  import "./styles/circuit-break.css";
+  11 |  import "./styles/retro-menu.css";
+     |          ^
+  12 |  ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ jsxDEV(React.StrictMode, { children: /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
+  13 |    fileName: "E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx",
+9:48:29 PM [vite] Internal server error: Failed to resolve import "./styles/retro-menu.css" from "src/main.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx:10:7
+  9  |  import "./styles/responsive.css";
+  10 |  import "./styles/circuit-break.css";
+  11 |  import "./styles/retro-menu.css";
+     |          ^
+  12 |  ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ jsxDEV(React.StrictMode, { children: /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
+  13 |    fileName: "E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx",
+      at TransformPluginContext._formatLog (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 10)
+      at async TransformPluginContext.transform (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)
+10:50:43 PM [vite] Pre-transform error: Failed to resolve import "./styles/title-menu-transition.css" from "src/main.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx:14:7
+  13 |  import "./styles/retro-back-sign.css";
+  14 |  import "./styles/play-cabinets.css";
+  15 |  import "./styles/title-menu-transition.css";
+     |          ^
+  16 |  ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ jsxDEV(React.StrictMode, { children: /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
+  17 |    fileName: "E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx",
+10:50:43 PM [vite] Internal server error: Failed to resolve import "./styles/title-menu-transition.css" from "src/main.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx:14:7
+  13 |  import "./styles/retro-back-sign.css";
+  14 |  import "./styles/play-cabinets.css";
+  15 |  import "./styles/title-menu-transition.css";
+     |          ^
+  16 |  ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ jsxDEV(React.StrictMode, { children: /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
+  17 |    fileName: "E:/VSCode-Sites/Projects/InsertCoin-site/src/main.tsx",
+      at TransformPluginContext._formatLog (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42658:41)
+      at TransformPluginContext.error (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42655:16)
+      at normalizeUrl (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40634:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40753:37
+      at async Promise.all (index 14)
+      at async TransformPluginContext.transform (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:40680:7)
+      at async EnvironmentPluginContainer.transform (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:42453:18)
+      at async loadAndTransform (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:35845:27)
+      at async viteTransformMiddleware (file:///E:/VSCode-Sites/Projects/InsertCoin-site/node_modules/vite/dist/node/chunks/dep-Dm0c1Wj2.js:37369:24)

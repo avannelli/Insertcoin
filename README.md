@@ -69,3 +69,13 @@ Race seven rivals over 10.4 km (about 2–3 minutes of active driving). No time-
 - `src/components/RaceStatsDisplay.tsx` and `src/styles/night-shift.css`: discreet race records and racing-specific presentation.
 
 Integration changes are in `src/data/games.ts`, `src/games/types.ts`, `src/components/GameCard.tsx`, `src/components/GameShell.tsx`, `src/utils/sound.ts`, and `src/main.tsx`. Existing Circuit Break, Silly Fish, and Air Hockey game modules are unchanged by this addition. `tests/night-shift.spec.ts` covers the new game; existing selection-count assertions in `tests/arcade.spec.ts` and `tests/air-hockey.spec.ts` now expect four cards.
+
+## Responsive play layouts
+
+`src/styles/responsive.css` controls the larger desktop play area, phone edge-to-edge game layout, readable menus, and touch targets. Air Hockey retains its portrait table. Circuit Break has a trial portrait board that adjusts its logical height, paddle position and lower collision boundary to fill the opening viewport; the other games retain their existing layouts. Its separate labeled slider keeps fingers below the board. Circuit Break-only rules live in src/styles/circuit-break.css.
+
+The shared GameShell offers **Expand / Shrink** independently of the browser Fullscreen API, including on mobile browsers without element fullscreen. Expanded landscape layouts move driving/shooting buttons beside the canvas. Escape exits Expand, and leaving the game restores page scrolling. `tests/responsive.spec.ts` checks all five games at phone sizes, rotation, aspect ratios, accessible controls, and larger desktop sizing.
+
+## Retro menu presentation
+
+src/styles/retro-menu.css gives the intro and centralized game-selection screen their shared CRT cabinet presentation. It contains the scanlines, neon marquee, responsive cabinet grid, system-font arcade display stack, hover/focus states, staggered card entrances, and phone overrides. The rotating coin and Start hop remain in src/styles/animations.css, with motion disabled when the visitor requests reduced motion.

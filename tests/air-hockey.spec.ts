@@ -78,7 +78,7 @@ test('Air Hockey mounts through registry, inputs, fullscreen, stats, restart and
     await route.fulfill({ response, body: source + '\nconst originalCreate = AirHockeyScene.prototype.create; AirHockeyScene.prototype.create = function () { originalCreate.call(this); window.hockeyScene = this; };\n' });
   });
   await page.goto('/'); await page.getByRole('button', { name: 'PRESS START' }).click();
-  await expect(page.getByRole('article')).toHaveCount(5);
+  await expect(page.getByRole('article')).toHaveCount(3);
   const baseline = await page.evaluate(() => (window as any).hockeyListeners.size);
   const play = () => page.getByRole('article').filter({ has: page.getByRole('heading', { name: 'AIR HOCKEY', exact: true }) }).getByRole('button', { name: 'PLAY GAME' }).click();
   await play(); await expect(page.getByRole('heading', { name: 'FIRST TO 7' })).toBeVisible();

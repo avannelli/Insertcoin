@@ -3,19 +3,19 @@ import { test, expect } from '@playwright/test';
 test('fish physics: fair collision, one score per pair, capped difficulty and long-run cleanup', async ({ page }) => {
   await page.goto('/');
   const results = await page.evaluate(async () => {
-    const { FishRun, difficulty, coralRects, intersectsCoral } = await import('/src/games/silly-fish/model.ts');
+    const { FishRun, difficulty, coralRects, intersectsCoral, FISH_X } = await import('/src/games/silly-fish/model.ts');
     const run = new FishRun(() => 0.5);
-    run.pairs = [{ x: 109, center: 280, gap: 216, passed: false }];
+    run.pairs = [{ x: FISH_X - 91, center: 280, gap: 216, passed: false }];
     run.step(0.01); const firstScore = run.score;
     run.step(0.01); const secondScore = run.score;
     const boundary = new FishRun(); boundary.y = 11; boundary.step(0.001);
     const bottom = new FishRun(); bottom.y = 549; bottom.step(0.001);
-    const collision = new FishRun(() => 0.5); collision.pairs[0].x = 170; collision.y = 100; collision.step(0.001);
-    const safe = new FishRun(() => 0.5); safe.pairs[0].x = 170; safe.step(0.001);
+    const collision = new FishRun(() => 0.5); collision.pairs[0].x = FISH_X - 30; collision.y = 100; collision.step(0.001);
+    const safe = new FishRun(() => 0.5); safe.pairs[0].x = FISH_X - 30; safe.step(0.001);
     const fish = new FishRun(() => 0.5); fish.swim(); const initialVelocity = fish.velocity; fish.step(0.05);
     const infinite = new FishRun(() => 0.5);
     let maxPairs = 0;
-    // A simple center-seeking player survives even at the capped difficulty.
+    // A fixed tapping strategy must now fail as the route changes.
     for (let i = 0; i < 60 * 180 && infinite.alive; i++) {
       if (infinite.y > 295 && infinite.velocity > 0) infinite.swim();
       infinite.step(1 / 60); maxPairs = Math.max(maxPairs, infinite.pairs.length);
@@ -38,9 +38,9 @@ test('fish physics: fair collision, one score per pair, capped difficulty and lo
   expect(results.topAlive).toBe(false); expect(results.bottomAlive).toBe(false);
   expect(results.collisionAlive).toBe(false); expect(results.safeAlive).toBe(true);
   expect(results.initialVelocity).toBe(-285); expect(results.swimmingUp).toBe(true);
-  expect(results.start).toEqual({ speed: 155, gap: 216 }); expect(results.cap).toEqual({ speed: 230, gap: 174 });
-  expect(results.longRunAlive).toBe(true); expect(results.longRunScore).toBeGreaterThan(100);
-  expect(results.maxPairs).toBeLessThanOrEqual(4); expect(results.maxShift).toBeLessThanOrEqual(75);
+  expect(results.start).toEqual({ speed: 145, gap: 202 }); expect(results.cap).toEqual({ speed: 220, gap: 138 });
+  expect(results.longRunAlive).toBe(false); expect(results.longRunScore).toBeLessThan(20);
+  expect(results.maxPairs).toBeLessThanOrEqual(4); expect(results.maxShift).toBeLessThanOrEqual(105);
   expect(results.gapSafe).toBe(true);
 });
 
@@ -60,6 +60,7 @@ test('fish shell: controls, pause, restart, records, sound and repeated mount cl
     (window as any).keydownListeners = listeners;
   });
   await page.goto('/'); await page.getByRole('button', { name: 'PRESS START' }).click();
+  await expect(page.getByRole('heading', { name: 'Choose your game' })).toBeVisible();
   const baseline = await page.evaluate(() => (window as any).keydownListeners.size);
   const play = () => page.getByRole('article').filter({ has: page.getByRole('heading', { name: 'SILLY FISH', exact: true }) }).getByRole('button', { name: 'PLAY GAME' }).click();
   await play();
@@ -106,7 +107,13 @@ test('fish mobile touch and focused arrows do not scroll', async ({ browser }) =
   await page.goto('/'); await page.getByRole('button', { name: 'PRESS START' }).tap();
   await page.getByRole('article').filter({ hasText: 'SILLY FISH' }).getByRole('button', { name: 'PLAY GAME' }).tap();
   await page.getByRole('button', { name: 'START SWIMMING' }).tap();
-  await page.locator('canvas').tap({ position: { x: 100, y: 120 } });
+  const board = (await page.locator('canvas').boundingBox())!;
+  const swim = page.getByRole('button', { name: 'TAP TO SWIM', exact: true });
+  const button = (await swim.boundingBox())!;
+  expect(board.y + board.height).toBeLessThanOrEqual(844);
+  expect(button.y).toBeGreaterThanOrEqual(board.y + board.height);
+  await expect(swim).toBeInViewport();
+  await swim.tap();
   const scroll = await page.evaluate(() => scrollY);
   await page.keyboard.press('ArrowUp'); await page.keyboard.press('Space');
   expect(await page.evaluate(() => scrollY)).toBe(scroll);

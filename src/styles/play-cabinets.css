@@ -1,0 +1,252 @@
+/* Shared cabinet treatment for every playable screen. */
+.play-frame {
+  --game-accent: var(--cyan);
+  --game-secondary: var(--magenta);
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 12% 20%, #58e6cf10 0 2px, transparent 3px),
+    radial-gradient(circle at 88% 72%, #ef4db810 0 2px, transparent 3px),
+    linear-gradient(180deg, #151027, #090817);
+  background-size: 74px 74px, 91px 91px, auto;
+}
+.play-frame::after {
+  content: '';
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(180deg, transparent 0 3px, #03020b20 4px 5px);
+  mix-blend-mode: multiply;
+}
+.play-frame .readout {
+  position: relative;
+  margin: 8px 12px 0;
+  padding: 12px 18px;
+  border: 1px solid #58e6cf30;
+  background: #080817cc;
+  text-shadow: 0 0 8px currentColor;
+}
+.play-frame .game-content { position: relative; z-index: 2; }
+.game-content:not(.circuit-content):not(.fish-content) .game-page-heading {
+  position: relative;
+  min-height: 86px;
+  overflow: hidden;
+  margin: 12px 0 18px;
+  padding: 18px 24px;
+  border: 1px solid var(--cyan);
+  border-bottom: 5px solid var(--magenta);
+  background: linear-gradient(108deg, #090817 0 64%, #241437 64%);
+  box-shadow: 6px 6px 0 #05040d, inset 0 0 28px #0008;
+}
+.game-content:not(.circuit-content):not(.fish-content) .game-page-heading::after {
+  content: 'PLAYER 01  //  READY';
+  position: absolute;
+  right: 20px;
+  bottom: 8px;
+  color: #58e6cf82;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+.game-page-heading h1,
+
+.game-shell {
+  --game-accent: var(--cyan);
+  --game-secondary: var(--magenta);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #554365;
+  outline: 1px solid #080713;
+  outline-offset: 4px;
+  background: linear-gradient(135deg, #251938, #0d0c1d 56%);
+  box-shadow: 9px 10px 0 #05040d, 12px 13px 0 #2b1c3a, 0 0 28px color-mix(in srgb, var(--game-accent) 18%, transparent);
+}
+.game-circuit-break { --game-accent: #f7ed59; --game-secondary: #ef4db8; }
+.game-silly-fish { --game-accent: #58e6cf; --game-secondary: #ef4db8; }
+.game-air-hockey { --game-accent: #66d9ff; --game-secondary: #f7ed59; }
+.game-hud {
+  position: relative;
+  z-index: 7;
+  border-bottom: 3px solid var(--game-secondary);
+  background:
+    repeating-linear-gradient(90deg, #ffffff05 0 1px, transparent 1px 26px),
+    linear-gradient(180deg, #1f1731, #0a0919);
+  color: var(--game-accent);
+  text-shadow: 0 0 7px currentColor;
+  box-shadow: inset 0 -1px #000, 0 3px 0 #070611;
+}
+.game-hud::before,
+.game-hud::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--game-secondary);
+  box-shadow: 0 0 8px var(--game-secondary);
+}
+.game-hud .score-display strong { color: var(--yellow); text-shadow: 0 0 7px #f7ed5966; }
+.canvas-wrap {
+  isolation: isolate;
+  border: 7px solid #070713;
+  box-shadow: inset 0 0 0 2px #675477, inset 0 0 30px #000, 0 0 0 1px #32253e;
+}
+.canvas-wrap::after {
+  content: '';
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, transparent 0 42%, #dffcff0d 47%, transparent 52%),
+    repeating-linear-gradient(180deg, transparent 0 3px, #0002 4px 5px);
+  box-shadow: inset 0 0 34px #0009;
+}
+.phaser-host { z-index: 1; }
+.game-overlay, .game-notice { z-index: 9; }
+.game-overlay {
+  backdrop-filter: blur(2px);
+  border: 1px solid #ffffff0c;
+  background: #090817d9;
+}
+.game-overlay h2 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', var(--display);
+  color: var(--yellow);
+  letter-spacing: .04em;
+  text-shadow: 3px 3px 0 #76275f, 0 0 15px #f7ed5966;
+  transform: skew(-2deg);
+}
+.game-overlay .eyebrow { color: var(--game-accent); text-shadow: 0 0 8px currentColor; }
+.game-overlay .primary {
+  border: 2px solid var(--yellow);
+  background: var(--yellow);
+  box-shadow: 4px 4px 0 var(--game-secondary), 0 0 13px #f7ed5930;
+}
+.game-toolbar {
+  position: relative;
+  border-top: 3px solid #382845;
+  background:
+    repeating-linear-gradient(135deg, #171125 0 9px, #1d1530 9px 18px);
+  box-shadow: inset 0 2px #080713;
+}
+.game-toolbar::before {
+  content: 'CONTROL DECK';
+  position: absolute;
+  top: 3px;
+  left: 9px;
+  color: #83718f;
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+.game-toolbar .pixel-button {
+  border-color: #5a4968;
+  background: #0b0a18;
+  box-shadow: 2px 3px 0 #05040b;
+}
+.game-toolbar .pixel-button:hover:not(:disabled) {
+  border-color: var(--game-accent);
+  color: var(--game-accent);
+  box-shadow: 2px 3px 0 #05040b, 0 0 10px color-mix(in srgb, var(--game-accent) 45%, transparent);
+}
+.paddle-controls,
+.drive-controls {
+  border-top-color: #564267;
+  background:
+    linear-gradient(90deg, var(--game-secondary) 0 4px, transparent 4px),
+    repeating-linear-gradient(135deg, #171125 0 9px, #201632 9px 18px);
+}
+
+.instructions-card {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #554265;
+  border-left: 7px solid var(--cyan);
+  background:
+    linear-gradient(90deg, #58e6cf08 1px, transparent 1px),
+    linear-gradient(180deg, #201632, #100d20);
+  background-size: 24px auto, auto;
+  box-shadow: 7px 7px 0 #070611, inset 0 0 24px #0005;
+}
+.instructions-card::after {
+  content: 'REFERENCE CARD  //  INSERTCOIN OS';
+  position: absolute;
+  top: 13px;
+  right: 18px;
+  color: #7c6b88;
+  font-size: 7px;
+  letter-spacing: 1.5px;
+}
+.instructions-card h2 {
+  width: fit-content;
+  padding: 5px 10px;
+  border-left: 4px solid var(--magenta);
+  background: #080817;
+  text-shadow: 0 0 8px #58e6cf77;
+}
+.instructions-card h3 { display: flex; align-items: center; gap: 7px; }
+.instructions-card h3::before { content: '◆'; color: var(--magenta); font-size: 8px; }
+.instructions-card p { color: #ddd1e5; }
+
+@keyframes cabinet-lights { 50% { color: var(--cyan); text-shadow: 0 0 7px currentColor; } }
+@media (max-width: 700px) {
+  .play-frame .readout { margin: 4px 6px 0; padding: 9px 11px; }
+  .game-content:not(.circuit-content):not(.fish-content) .game-page-heading { min-height: 70px; padding: 13px 16px; box-shadow: 4px 4px 0 #05040d; }
+  .game-content:not(.circuit-content):not(.fish-content) .game-page-heading::after { right: 12px; bottom: 5px; font-size: 6px; }
+  .game-shell { outline-offset: 2px; box-shadow: 4px 5px 0 #05040d, 6px 7px 0 #2b1c3a; }
+  .canvas-wrap {
+    border-width: 1px;
+    box-shadow: inset 0 0 0 3px #070713, inset 0 0 0 4px #675477, inset 0 0 30px #000, 0 0 0 1px #32253e;
+  }
+  .game-hud::before, .game-hud::after { width: 4px; height: 4px; }
+  .game-toolbar::before { display: none; }
+  .instructions-card { border-left-width: 5px; box-shadow: 4px 4px 0 #070611; }
+  .instructions-card::after { display: none; }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .game-shell.expanded-game, .game-shell:fullscreen { border: 0; outline: 0; box-shadow: none; }
+  .game-shell.expanded-game .canvas-wrap, .game-shell:fullscreen .canvas-wrap { border-width: 3px; }
+}
+/* Control deck: the way back on the left, the mute switch on the right,
+   play controls centred between them. */
+.game-toolbar { flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding-top: 15px; }
+.game-toolbar button { white-space: nowrap; }
+.game-shell .game-toolbar .back-button { flex: 0 0 auto; margin: 0; padding: 11px 34px 11px 16px; }
+.deck-controls { display: flex; flex: 1 1 100%; order: 2; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
+.game-toolbar .sound-toggle {
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  min-height: 44px;
+  border: 1px solid #5a4968;
+  background: #0b0a18;
+  color: var(--game-accent);
+  box-shadow: 2px 3px 0 #05040b;
+}
+.game-toolbar .sound-toggle:hover { color: var(--yellow); border-color: var(--game-accent); }
+
+/* The cabinet marquee: the game's name headlines the screen that invites you to play. */
+.game-overlay p.game-title-plate {
+  max-width: none;
+  margin: 0 0 10px;
+  padding: 0 4px 8px;
+  border-bottom: 4px solid var(--game-secondary);
+  color: #fff37a;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', var(--display);
+  font-stretch: condensed;
+  font-size: clamp(38px, 6.6vw, 74px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 0 #ef4db8, 8px 8px 0 #34294b, 0 0 26px #f7ed5940;
+  transform: skew(-3deg);
+}
+.game-overlay:has(.game-title-plate) h2 { font-size: clamp(17px, 2.2vw, 24px); }
+@media (max-width: 700px) {
+  .game-toolbar { gap: 6px; padding-top: 14px; }
+  .game-shell .game-toolbar .back-button { min-height: 44px; margin: 0; padding: 9px 28px 9px 11px; font-size: 10px; }
+  .game-toolbar .sound-toggle { margin: 0; font-size: 10px; }
+  .deck-controls { gap: 6px; }
+  .game-overlay p.game-title-plate { margin-bottom: 7px; font-size: clamp(30px, 9vw, 44px); padding-bottom: 6px; border-bottom-width: 3px; text-shadow: 3px 3px 0 #ef4db8, 6px 6px 0 #34294b; }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .game-overlay p.game-title-plate { font-size: clamp(24px, 4vw, 34px); margin-bottom: 4px; padding-bottom: 4px; }
+}

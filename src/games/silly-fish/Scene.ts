@@ -40,7 +40,7 @@ export class SillyFishScene extends Phaser.Scene {
       if (!event.repeat) this.swim();
     } else if (event.code === 'KeyP' && !event.repeat) this.pause();
   };
-  private pointerSwim() { this.parent.focus(); this.swim(); }
+  private pointerSwim() { this.parent.focus({ preventScroll: true }); this.swim(); }
   private visibilityChanged = () => { if (document.hidden) this.autoPause(); };
   private autoPause = () => { if (this.status === 'playing') { this.status = 'paused'; this.emit(); } };
   private emit() {
@@ -51,6 +51,7 @@ export class SillyFishScene extends Phaser.Scene {
     if (this.status === 'paused') { this.status = 'playing'; this.emit(); }
     else if (this.status === 'ready') { this.status = 'playing'; this.run.swim(); sound.play('swim'); this.emit(); }
   }
+  control(action: string, pressed: boolean) { if (action === 'swim' && pressed) this.swim(); }
   private swim() {
     if (this.status === 'ready') this.start();
     else if (this.status === 'playing') { this.run.swim(); sound.play('swim'); }
@@ -75,13 +76,19 @@ export class SillyFishScene extends Phaser.Scene {
       this.angle = Phaser.Math.Linear(this.angle, target, Math.min(1, dt * 12));
     }
     this.drawWorld();
+    this.drawFish();
     this.fish.setPosition(FISH_X, this.run.y).setRotation(this.angle);
   }
   private drawFish() {
     const g = this.fish;
-    g.fillStyle(0xffa94e); g.fillTriangle(-17, 0, -34, -14, -34, 14);
+    g.clear();
+    const flutter = this.reducedMotion ? 0 : Math.sin(this.run.distance * 0.12) * 4;
+    g.fillStyle(0xffa94e); g.fillTriangle(-17, 0, -34 + flutter, -14, -34 + flutter, 14);
     g.fillStyle(0xf7ed59); g.fillTriangle(-5, -11, 5, -24, 15, -10);
+    g.lineStyle(2, 0x713958); g.strokeEllipse(0, 0, 47, 32);
     g.fillStyle(0xffa94e); g.fillEllipse(0, 0, 46, 31);
+    g.fillStyle(0xffd375, 0.8); g.fillEllipse(-1, -6, 35, 15);
+    g.fillStyle(0xe56b64, 0.65); g.fillEllipse(1, 8, 35, 10);
     g.fillStyle(0xfff1c9); g.fillRoundedRect(-12, -13, 7, 26, 3); g.fillRoundedRect(6, -13, 6, 26, 3);
     g.fillStyle(0xf7ed59); g.fillTriangle(-2, 2, -12, 14, 6, 11);
     g.fillStyle(0x171127); g.fillCircle(16, -4, 4);
@@ -91,13 +98,13 @@ export class SillyFishScene extends Phaser.Scene {
   private drawWorld() {
     const g = this.world, distance = this.reducedMotion ? 0 : this.run.distance;
     g.clear();
-    g.fillGradientStyle(0x131c35, 0x17152d, 0x20132e, 0x151b32, 1); g.fillRect(0, 0, WIDTH, HEIGHT);
-    g.fillStyle(0x58e6cf, 0.025);
+    g.fillGradientStyle(0x126077, 0x12495f, 0x081c36, 0x102844, 1); g.fillRect(0, 0, WIDTH, HEIGHT);
+    g.fillStyle(0xa4fff0, 0.065);
     for (let i = 0; i < 5; i++) g.fillTriangle(i * 220 - 60, 0, i * 220 + 25, 0, i * 220 + 120, HEIGHT);
     for (let i = 0; i < 17; i++) {
       const x = ((i * 79 - distance * 0.15) % 880 + 880) % 880 - 40;
       const height = 30 + (i * 37) % 85;
-      g.fillStyle(0x43304f, 0.5); g.fillRoundedRect(x, HEIGHT - height, 13, height + 10, 6);
+      g.fillStyle(0x237d86, 0.3); g.fillRoundedRect(x, HEIGHT - height, 13, height + 10, 6);
       g.fillRoundedRect(x - 14, HEIGHT - height + 30, 18, 10, 4);
     }
     g.lineStyle(1, 0x58e6cf, 0.18);
@@ -108,6 +115,19 @@ export class SillyFishScene extends Phaser.Scene {
     }
     for (const pair of this.run.pairs) {
       drawCoral(g, pair, coralRects(pair));
+    }
+    // Distant shoals and gently swaying eelgrass give the reef depth.
+    for (let i = 0; i < 8; i++) {
+      const x = ((i * 73 - distance * 0.3) % (WIDTH + 30) + WIDTH + 30) % (WIDTH + 30);
+      const y = 105 + (i * 47) % 340;
+      g.fillStyle(0x8ce4df, 0.16); g.fillEllipse(x, y, 14, 5); g.fillTriangle(x - 6, y, x - 11, y - 4, x - 11, y + 4);
+    }
+    for (let i = 0; i < 22; i++) {
+      const x = ((i * 29 - distance * 0.4) % (WIDTH + 40) + WIDTH + 40) % (WIDTH + 40) - 20;
+      const sway = Math.sin(distance * 0.015 + i) * 7;
+      g.lineStyle(2, i % 2 ? 0x39b7a0 : 0x398294, 0.55);
+      g.beginPath(); g.moveTo(x, HEIGHT); g.lineTo(x + sway * 0.4, HEIGHT - 10); g.lineTo(x + sway, HEIGHT - 18 - i % 3 * 7); g.strokePath();
+      g.fillStyle(0x233b55, 0.8); g.fillEllipse(x, HEIGHT, 30, 10);
     }
     g.lineStyle(2, 0x58e6cf, 0.25); g.lineBetween(0, 1, WIDTH, 1); g.lineBetween(0, HEIGHT - 1, WIDTH, HEIGHT - 1);
     if (this.status === 'playing') {

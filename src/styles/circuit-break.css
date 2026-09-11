@@ -1,0 +1,43 @@
+/* Circuit Break trial layout only. Other cabinets retain their current layout. */
+.play-frame:has(.circuit-content) { margin: 0; border: 0; min-height: 100svh; }
+.play-frame:has(.circuit-content)::before, .play-frame:has(.circuit-content)::after { display: none; }
+.circuit-content { --circuit-board-height: calc(100svh - 234px); max-width: 1600px; padding: 0 16px 24px; margin: 0 auto; }
+.circuit-shell { border: 0; display: flex; flex-direction: column; align-items: center; }
+.circuit-shell > .game-hud, .circuit-shell > .paddle-controls, .circuit-shell > .game-toolbar { width: min(100%, max(380px, calc(var(--circuit-board-height) * 10 / 7))); }
+.circuit-shell > .game-hud { height: 36px; min-height: 36px; padding: 8px 12px; align-items: center; flex: none; }
+.circuit-shell > .canvas-wrap { width: min(100%, calc(var(--circuit-board-height) * 10 / 7)); aspect-ratio: 10 / 7; flex: none; }
+.paddle-controls { display: flex; flex-direction: column; gap: 3px; height: 80px; flex: none; padding: 7px 18px; background: #242039; border: 1px solid var(--line); text-align: center; }
+.paddle-controls label { font-size: 12px; color: var(--cyan); letter-spacing: .5px; }
+.paddle-controls > span { font-size: 11px; color: var(--muted); }
+.paddle-controls input { width: 100%; margin: 0; min-height: 34px; appearance: none; background: transparent; cursor: ew-resize; touch-action: none; }
+.paddle-controls input::-webkit-slider-runnable-track { height: 8px; background: #121325; border: 1px solid #647181; border-radius: 5px; }
+.paddle-controls input::-webkit-slider-thumb { appearance: none; width: 66px; height: 30px; margin-top: -12px; border: 3px solid #171127; border-radius: 6px; background: var(--cyan); box-shadow: 0 0 0 1px var(--cyan); }
+.paddle-controls input::-moz-range-track { height: 8px; background: #121325; border: 1px solid #647181; border-radius: 5px; }
+.paddle-controls input::-moz-range-thumb { width: 60px; height: 26px; border: 3px solid #171127; border-radius: 6px; background: var(--cyan); }
+.paddle-controls input:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
+.paddle-controls input:disabled { opacity: .4; }
+.circuit-shell > .game-toolbar { height: 54px; min-height: 54px; flex: none; padding: 5px; gap: 8px; flex-wrap: nowrap; }
+.circuit-shell > .game-toolbar button { min-height: 44px; padding: 8px 12px; font-size: 11px; }
+.circuit-content .instructions-card { max-width: 1100px; margin: 28px auto 0; }
+.circuit-shell.expanded-game, .circuit-shell:fullscreen { --circuit-board-height: calc(100dvh - 174px); display: flex; }
+.circuit-shell.expanded-game > .canvas-wrap, .circuit-shell:fullscreen > .canvas-wrap { margin: auto; width: min(100%, calc(var(--circuit-board-height) * 10 / 7)); }
+@media (max-width: 700px) and (orientation: portrait) {
+  .circuit-content { --circuit-board-height: calc(100svh - 302px); padding: 0 6px 20px; }
+  .circuit-shell > .canvas-wrap { width: 100%; height: var(--circuit-board-height); min-height: 215px; aspect-ratio: auto; }
+  .circuit-shell > .game-hud, .circuit-shell > .game-toolbar, .circuit-shell > .paddle-controls { width: 100%; }
+  .circuit-shell > .game-toolbar { height: auto; flex-wrap: wrap; gap: 4px; }
+  .circuit-shell > .game-toolbar button { font-size: 10px; padding: 8px 5px; letter-spacing: 0; }
+  .circuit-shell > .game-toolbar .muted { display: none; }
+  .circuit-shell.expanded-game, .circuit-shell:fullscreen { --circuit-board-height: calc(100dvh - 176px); }
+  .circuit-shell.expanded-game > .canvas-wrap, .circuit-shell:fullscreen > .canvas-wrap { width: 100%; }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .circuit-content { --circuit-board-height: calc(100svh - 196px); }
+  .circuit-shell .paddle-controls { height: 62px; padding: 3px 12px; }
+  .circuit-shell .paddle-controls > span { display: none; }
+  .circuit-shell.expanded-game, .circuit-shell:fullscreen { --circuit-board-height: calc(100dvh - 154px); }
+  .circuit-shell .game-overlay { padding: 8px; }
+  .circuit-shell .game-overlay .eyebrow { display: none; }
+  .circuit-shell .game-overlay h2 { font-size: 22px; margin: 3px 0; }
+  .circuit-shell .game-overlay > p { margin: 0 0 4px; font-size: 11px; }
+}

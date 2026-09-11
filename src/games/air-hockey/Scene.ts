@@ -37,8 +37,8 @@ export class AirHockeyScene extends Phaser.Scene {
   private pointerDown(pointer: Phaser.Input.Pointer) { this.host.focus(); this.pointerMove(pointer); }
   private pointerMove(pointer: Phaser.Input.Pointer) {
     if (pointer.wasTouch && !pointer.isDown) return;
-    if (pointer.y < TABLE_HEIGHT / 2) return;
-    if (this.match.phase === 'playing') this.match.setTarget(pointer.x, pointer.y - (pointer.wasTouch ? 36 : 0));
+    // setTarget clamps to the player's half, so crossing the line pins the paddle instead of dropping it.
+    if (this.match.phase === 'playing') this.match.setTarget(pointer.x, pointer.y - (pointer.wasTouch ? 40 : 0));
   }
   private keyDown = (event: KeyboardEvent) => {
     if (!this.host.contains(document.activeElement)) return;

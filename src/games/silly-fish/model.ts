@@ -1,11 +1,11 @@
-export const WIDTH = 800;
+export const WIDTH = 420;
 export const HEIGHT = 560;
-export const FISH_X = 200;
+export const FISH_X = 105;
 export const RADIUS_X = 17;
 export const RADIUS_Y = 12;
 export interface CoralPair { x: number; center: number; gap: number; passed: boolean; }
 export interface CoralRect { x: number; y: number; width: number; height: number; }
-export const difficulty = (score: number) => ({ speed: Math.min(230, 155 + score * 2.5), gap: Math.max(174, 216 - score * 1.4) });
+export const difficulty = (score: number) => ({ speed: Math.min(220, 145 + score * 3), gap: Math.max(138, 202 - score * 2.2) });
 
 // These same shapes drive rendering and collision. Branches never intrude into the gap.
 export function coralRects(pair: CoralPair): CoralRect[] {
@@ -44,10 +44,13 @@ export class FishRun {
   alive = true;
   distance = 0;
   pairs: CoralPair[] = [];
-  constructor(private random: () => number = Math.random) { this.spawn(650, HEIGHT / 2); }
+  private generated = 0;
+  constructor(private random: () => number = Math.random) { this.spawn(WIDTH + 65, HEIGHT / 2); }
   swim() { if (this.alive) this.velocity = -285; }
   private spawn(x: number, previousCenter: number) {
-    const center = Math.max(155, Math.min(405, previousCenter + (this.random() - 0.5) * 150));
+    const target = HEIGHT / 2 + Math.sin(this.generated * 1.65) * 115 + (this.random() - 0.5) * 70;
+    const center = this.generated === 0 ? HEIGHT / 2 : Math.max(145, Math.min(HEIGHT - 145, previousCenter + Math.max(-105, Math.min(105, target - previousCenter))));
+    this.generated++;
     this.pairs.push({ x, center, gap: difficulty(this.score).gap, passed: false });
   }
   step(dt: number): 'score' | 'over' | undefined {
@@ -65,7 +68,8 @@ export class FishRun {
       if (!pair.passed && pair.x + 74 < FISH_X - RADIUS_X) { pair.passed = true; this.score++; event = 'score'; }
     }
     const last = this.pairs[this.pairs.length - 1];
-    if (last.x <= WIDTH - 285) this.spawn(last.x + 285, last.center);
+    const spacing = Math.max(238, 285 - this.score * 1.4);
+    if (last.x <= WIDTH - spacing) this.spawn(last.x + spacing, last.center);
     this.pairs = this.pairs.filter(pair => pair.x > -90);
     return event;
   }

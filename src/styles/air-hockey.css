@@ -1,3 +1,31 @@
+/* Air Hockey: a portrait cabinet that fits the phone, with the ice kept crisp. */
+.play-frame:has(.hockey-content) { margin: 0; border: 0; min-height: 100svh; }
+.play-frame:has(.hockey-content)::before { display: none; }
+.hockey-content { max-width: 1000px; padding: 0 6px 24px; margin: auto; }
+.hockey-shell {
+  --play-ratio: .6666667 !important;
+  --play-chrome: 128px !important;
+  max-width: 560px;
+  margin: auto;
+  border-color: #2f5f88;
+  background: #0c1524;
+}
+.hockey-shell:not(.expanded-game):not(:fullscreen) .canvas-wrap { width: min(100%, calc((100svh - 226px) * .6666667)); margin: auto; }
+/* Lift the sheet above the cabinet's CRT overlay; the ice carries its own faint scanline. */
+.hockey-shell .canvas-wrap { position: relative; z-index: 31; background: #0c1524; }
+.hockey-shell .canvas-wrap::after {
+  content: '';
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(180deg, transparent 0 3px, #0a1c2c14 4px 5px);
+}
+.hockey-shell .game-overlay { z-index: 4; background: rgba(8, 18, 32, .8); }
+.hockey-shell .game-notice { z-index: 4; }
+.hockey-shell .orientation-hint { display: none; }
+.hockey-content .instructions-card { max-width: 760px; margin: 24px auto; }
+.hockey-shell.expanded-game, .hockey-shell:fullscreen { max-width: none; }
 .portrait-game .canvas-wrap { width: min(100%, 420px); margin-inline: auto; }
 .portrait-game .phaser-host { user-select: none; -webkit-user-select: none; }
 .portrait-game .game-overlay h2 { font-size: clamp(24px, 4vw, 36px); }

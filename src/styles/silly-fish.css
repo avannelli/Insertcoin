@@ -1,0 +1,18 @@
+/* A thumb-friendly portrait cabinet, scoped to Silly Fish. */
+.play-frame:has(.fish-content) { margin: 0; border: 0; min-height: 100svh; }
+.play-frame:has(.fish-content)::before, .play-frame:has(.fish-content)::after { display: none; }
+.fish-content { max-width: 1000px; padding: 0 6px 24px; margin: auto; }
+.fish-shell { --play-ratio: .75 !important; --play-chrome: 188px !important; max-width: 600px; margin: auto; border-color: #31898e; background: #101e31; }
+.fish-shell:not(.expanded-game):not(:fullscreen) .canvas-wrap { width: min(100%, calc((100svh - 242px) * .75)); margin: auto; }
+.fish-shell .orientation-hint { display: none; }
+.fish-shell .drive-controls { display: grid; grid-template-columns: 1fr; padding: 8px 12px; background: #122b3b; }
+.fish-shell .drive-controls button { width: 100%; min-height: 64px; touch-action: none; user-select: none; font-size: 16px; color: #102a35; background: #6be5cf; border-color: #adffdf; box-shadow: 0 4px 0 #207770; }
+.fish-shell .drive-controls button:active { transform: translateY(3px); box-shadow: 0 1px 0 #207770; }
+.fish-shell .game-overlay { background: rgba(7, 21, 39, .77); }
+.fish-content .instructions-card { max-width: 700px; margin: 24px auto; }
+.fish-shell.expanded-game, .fish-shell:fullscreen { max-width: none; }
+@media (orientation: landscape) and (max-height: 600px) {
+ .fish-shell.expanded-game, .fish-shell:fullscreen { --play-chrome: 104px !important; }
+ .fish-shell.expanded-game .drive-controls, .fish-shell:fullscreen .drive-controls { grid-template-columns: 1fr; }
+ .fish-shell.expanded-game .drive-controls button, .fish-shell:fullscreen .drive-controls button { min-height: 80px; font-size: 13px; }
+}

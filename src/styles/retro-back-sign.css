@@ -1,0 +1,75 @@
+/* A compact arcade-console key for the route back to game selection. */
+.back-button {
+  position: relative;
+  isolation: isolate;
+  min-height: 46px;
+  margin: 0 0 8px;
+  padding: 11px 34px 11px 16px;
+  border: 1px solid #58e6cf;
+  border-radius: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 3px, #58e6cf0b 3px 4px),
+    linear-gradient(135deg, #261938, #15142a 62%);
+  color: #f7ed59;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 1.2px;
+  text-shadow: 2px 2px #78235f, 0 0 8px #f7ed5955;
+  box-shadow:
+    inset 3px 0 #ef4db8,
+    inset 0 -3px #47244f,
+    4px 4px 0 #090a17,
+    0 0 12px #58e6cf24;
+  clip-path: polygon(7px 0, calc(100% - 7px) 0, 100% 7px, 100% calc(100% - 7px), calc(100% - 7px) 100%, 7px 100%, 0 calc(100% - 7px), 0 7px);
+  transition: color .15s, transform .15s, border-color .15s, box-shadow .15s;
+}
+.back-button::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 4px;
+  border: 1px solid #ef4db855;
+  pointer-events: none;
+}
+.back-button::after {
+  content: '';
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  background: #58e6cf;
+  box-shadow: 0 0 7px #58e6cf, -9px 0 0 #ef4db8, -9px 0 7px #ef4db8;
+  transform: translateY(-50%);
+  animation: back-key-lights 1.4s steps(2, end) infinite;
+}
+.back-button:hover {
+  color: #fff6a7;
+  border-color: #f7ed59;
+  transform: translate(-2px, -2px);
+  box-shadow: inset 3px 0 #ef4db8, inset 0 -3px #684071, 6px 6px 0 #090a17, 0 0 17px #58e6cf44;
+}
+.back-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: inset 3px 0 #ef4db8, inset 0 -1px #47244f, 1px 1px 0 #090a17;
+}
+.back-button:focus-visible { outline-color: #f7ed59; outline-offset: 4px; }
+
+@keyframes back-key-lights {
+  0%, 45% { opacity: .45; }
+  46%, 100% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .back-button::after { animation: none; }
+}
+@media (max-width: 700px) {
+  .back-button {
+    min-height: 42px;
+    margin: 2px 0 6px;
+    padding: 9px 30px 9px 12px;
+    font-size: 10px;
+    letter-spacing: .5px;
+  }
+  .back-button::after { right: 10px; width: 6px; height: 6px; box-shadow: 0 0 6px #58e6cf, -8px 0 0 #ef4db8, -8px 0 6px #ef4db8; }
+}

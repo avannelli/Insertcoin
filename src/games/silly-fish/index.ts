@@ -10,5 +10,5 @@ export const mount: MountGame = (parent, onChange) => {
     scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
     render: { antialias: true }, audio: { noAudio: true },
   });
-  return { start: () => scene.start(), pause: () => scene.pause(), restart: () => scene.restart(), destroy: () => game.destroy(true) };
+  return { control: (action, pressed) => scene.control(action, pressed), start: () => scene.start(), pause: () => scene.pause(), restart: () => scene.restart(), destroy: () => game.destroy(true) };
 };
